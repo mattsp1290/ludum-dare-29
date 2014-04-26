@@ -30,17 +30,7 @@ function create(){
 	// Start arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
-	// Create borders
-	borders = game.add.group();
-	borders.enableBody = true;
-	var topBorder = borders.create(0, 0, 'top-border');
-	topBorder.body.immovable = true;
-	var rightBorder = borders.create(704, 28, 'right-border');
-	rightBorder.body.immovable = true;
-	var bottomBorder = borders.create(0, 476, 'bottom-border');
-	bottomBorder.body.immovable = true;
-	var leftBorder = borders.create(0,28, 'left-border');
-	leftBorder.body.immovable = true;
+	
 
 	// Setup the map
 	map = game.add.tilemap('test-map');
@@ -67,6 +57,18 @@ function create(){
 
 	// Initialize cursors
 	cursors = game.input.keyboard.createCursorKeys();
+
+	// Create borders
+	borders = game.add.group();
+	borders.enableBody = true;
+	var topBorder = borders.create(0, 0, 'top-border');
+	topBorder.body.immovable = true;
+	var rightBorder = borders.create(704, 28, 'right-border');
+	rightBorder.body.immovable = true;
+	var bottomBorder = borders.create(0, 476, 'bottom-border');
+	bottomBorder.body.immovable = true;
+	var leftBorder = borders.create(0,28, 'left-border');
+	leftBorder.body.immovable = true;
 }
 
 function update(){
