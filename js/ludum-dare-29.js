@@ -35,7 +35,7 @@ function create(){
 	// Setup the map
 	map = game.add.tilemap('test-map');
 	map.addTilesetImage('Test', 'test-tiles');
-
+	map.setCollisionBetween(2, 2);
 	layer = map.createLayer('Tile Layer 1');
 	layer.resizeWorld();
 
@@ -73,6 +73,7 @@ function create(){
 
 function update(){
 	game.physics.arcade.collide(player,borders);
+	game.physics.arcade.collide(player,layer);
 	player.body.velocity.x = 0;
  
     if (cursors.left.isDown)
