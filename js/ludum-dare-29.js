@@ -35,8 +35,6 @@ function create(){
 	// Setup the map
 	map = game.add.tilemap('test-map');
 	map.addTilesetImage('Test', 'test-tiles');
-	map.swap(1,4);
-	map.swap(2,3);
 
 	layer = map.createLayer('Tile Layer 1');
 	layer.resizeWorld();
