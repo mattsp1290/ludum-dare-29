@@ -1,5 +1,5 @@
 // Setup the main game object
-var game = new Phaser.Game(512, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(640, 360, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 // Setup game globals
 var player;
