@@ -1,5 +1,5 @@
 // Setup the main game object
-var game = new Phaser.Game(1024, 896, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(512, 448, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 // Setup game globals
 var player;
@@ -15,7 +15,7 @@ function create(){
 
 	// Initialize the player
 	player = game.add.sprite(32, game.world.height - 150, 'dude');
-	player.scale.setTo(4,4);
+	player.scale.setTo(2,2);
 
 	// Enable player physics
 	game.physics.arcade.enable(player);
