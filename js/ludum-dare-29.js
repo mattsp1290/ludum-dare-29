@@ -17,6 +17,13 @@ function create(){
 	// Start arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
+	// Setup the map
+	map = game.add.tilemap('test-map');
+	map.addTilesetImage('Test', 'test-tiles');
+
+	layer = map.createLayer('Tile Layer 1');
+	layer.resizeWorld();
+
 	// Initialize the player
 	player = game.add.sprite(32, game.world.height - 150, 'dude');
 	player.scale.setTo(2,2);
@@ -35,13 +42,6 @@ function create(){
 
 	// Initialize cursors
 	cursors = game.input.keyboard.createCursorKeys();
-
-	// Setup the map
-	map = game.add.tilemap('test-map');
-	map.addTilesetImage('Test', 'test-tiles');
-
-	layer = map.createLayer('Tile Layer 1');
-	layer.resizeWorld();
 }
 
 function update(){
