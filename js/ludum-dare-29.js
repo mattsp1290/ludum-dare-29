@@ -4,9 +4,13 @@ var game = new Phaser.Game(640, 360, Phaser.AUTO, '', { preload: preload, create
 // Setup game globals
 var player;
 var cursors;
+var map;
+var layer;
 
 function preload(){
 	game.load.spritesheet('dude', 'assets/test-dude.png', 12, 12);
+	game.load.tilemap('test-map', 'assets/test-tiles.json', null, Phaser.Tilemap.TILED_JSON);
+	game.load.image('test-tiles', 'assets/test-tiles.png');
 }
 
 function create(){
@@ -31,6 +35,13 @@ function create(){
 
 	// Initialize cursors
 	cursors = game.input.keyboard.createCursorKeys();
+
+	// Setup the map
+	map = game.add.tilemap('test-map');
+	map.addTilesetImage('Test', 'test-tiles');
+
+	layer = map.createLayer('Tile Layer 1');
+	layer.resizeWorld();
 }
 
 function update(){
