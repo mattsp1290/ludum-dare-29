@@ -1,6 +1,10 @@
 // Setup the main game object
-var game = new Phaser.Game(640, 360, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-
+var game = new Phaser.Game(896, 504, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+// old resolution 640 x 360
+// 640 - 512 = 138
+// 138 / 2 = 69
+// sides are 69 x 448
+// 360 
 // Setup game globals
 var player;
 var cursors;
