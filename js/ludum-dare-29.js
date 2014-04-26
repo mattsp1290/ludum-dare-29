@@ -15,6 +15,7 @@ function create(){
 
 	// Initialize the player
 	player = game.add.sprite(32, game.world.height - 150, 'dude');
+	player.scale.setTo(4,4);
 
 	// Enable player physics
 	game.physics.arcade.enable(player);
