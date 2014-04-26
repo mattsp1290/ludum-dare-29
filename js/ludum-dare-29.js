@@ -14,21 +14,33 @@ var player;
 var cursors;
 var map;
 var layer;
+var borders;
 
 function preload(){
 	game.load.spritesheet('dude', 'assets/test-dude.png', 12, 12);
 	game.load.tilemap('test-map', 'assets/test-tiles.json', null, Phaser.Tilemap.TILED_JSON);
 	game.load.image('test-tiles', 'assets/test-tiles.png');
+	game.load.image('top-border', 'assets/top-border.png');
+	game.load.image('right-border', 'assets/right-border.png');
+	game.load.image('bottom-border', 'assets/bottom-border.png');
+	game.load.image('left-border', 'assets/left-border.png');
 }
 
 function create(){
-
-	// Set the bounds inside the box
-	game.world.setBounds(192, 28, 704, 476);
-
-
 	// Start arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
+
+	// Create borders
+	borders = game.add.group();
+	borders.enableBody = true;
+	var topBorder = borders.create(0, 0, 'top-border');
+	topBorder.body.immovable = true;
+	var rightBorder = borders.create(704, 28, 'right-border');
+	rightBorder.body.immovable = true;
+	var bottomBorder = borders.create(0, 476, 'bottom-border');
+	bottomBorder.body.immovable = true;
+	var leftBorder = borders.create(0,28, 'left-border');
+	leftBorder.body.immovable = true;
 
 	// Setup the map
 	map = game.add.tilemap('test-map');
@@ -58,6 +70,7 @@ function create(){
 }
 
 function update(){
+	game.physics.arcade.collide(player,borders);
 	player.body.velocity.x = 0;
  
     if (cursors.left.isDown)
