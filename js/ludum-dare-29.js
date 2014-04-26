@@ -1,11 +1,15 @@
 // Setup the main game object
 var game = new Phaser.Game(896, 504, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 // old resolution 640 x 360
-// 640 - 512 = 138
-// 138 / 2 = 69
-// sides are 69 x 448
-// 360 
+// 896 - 512 = 384
+// 384 / 2 = 192
+// sides are 192 x 448
+// 504 -  448 = 56
+// 56 / 2 = 28
+// top / bottom are 896 x 28
 // Setup game globals
+
+// SNES Resolutiopn 2X is 512 x 448
 var player;
 var cursors;
 var map;
@@ -18,6 +22,11 @@ function preload(){
 }
 
 function create(){
+
+	// Set the bounds inside the box
+	game.world.setBounds(192, 28, 704, 476);
+
+
 	// Start arcade physics
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
